@@ -1,0 +1,127 @@
+
+.start{
+  background: white;
+  color: green;
+  font: outline;
+  font-family:  monospace;
+  font-size: 16px;
+  border: 2px solid green;
+  border-radius: 25px ;
+  outline: none;
+  
+}
+.start:hover{
+  background: greenyellow;
+}
+
+body {
+  
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 30px;
+  background: #fff;
+}
+
+ol, ul {
+  padding-left: 30px;
+}
+.board-row{
+  position: absolute;
+  left : 30%;
+  top: 5%;
+  padding: 0px;
+  margin: 0px;
+  width: 660px;
+}
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+   
+}
+.user-info{
+  position: absolute;
+  right: 5%;
+  top: 3%;
+}
+.message{
+  margin: 15px 0 0;
+  color: #fff;
+  font-size: 16px;
+  float: right;
+}
+
+a{
+  color: green;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+}
+
+
+.square {
+  background: #fff;
+  border: 1px solid green;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+.highlight {
+  background: greenyellow;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.status{
+  font-family:  monospace;
+  font-size: 16px;
+  color: green;
+  margin-bottom: 10px;
+}
+
+
+.game-info {
+  margin-left: 20px;
+  padding: 10px;
+  border: green 2px solid;
+  border-radius: 20px;
+  height: auto;
+  width: 260px;
+  background: white;
+}
+.list{
+  margin: 5px;
+  text-decoration: none;
+  background: #fff;
+  border: none;
+  color: green;
+  font: outline;
+  font-family:  monospace;
+  font-size: 16px;
+  outline-color: green;
+}
+.list:hover{
+  background: green;
+  color: white;
+}
+
