@@ -7,7 +7,9 @@ import { BrowserRouter as Router,
 import Game from './Game';
 import Login from './Login';
 import Register from './Register';
-import '../style.css';
+import PrivateRoute from './PrivateRoute';
+// import '../style.css';
+
 
 const Root = ({ store }) => (
   <Provider store={store}>
@@ -17,7 +19,7 @@ const Root = ({ store }) => (
         
             <Route path="/login" component={Login}/>
             <Route path="/register" component={Register}/>
-            <Route path="/" component={Game}/>
+            <PrivateRoute exact path="/" component={Game}/>
               
         </Switch>  
         
