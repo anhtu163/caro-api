@@ -15,9 +15,8 @@ const myReducers = (state = initialState,action) =>{
 
   switch(action.type){
     case "WINNER":
-        return(
-          {
-              ...state,
+        return {
+          ...state,
               history: action.history.concat([{
                   squares: action.squares,
                   mv: action.currentMove + 1,
@@ -28,8 +27,8 @@ const myReducers = (state = initialState,action) =>{
                 stepNumber: action.history.length,
                 xIsNext: !state.xIsNext,
                 winner: action.winner,
-          }
-        )
+        }
+        
     case "JUMP_TO":
         return ( 
           {

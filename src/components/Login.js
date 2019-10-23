@@ -1,10 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -13,7 +11,7 @@ import Container from '@material-ui/core/Container';
 
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
-
+import apiCaller from '../utils/apiCaller'
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -40,10 +38,34 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignIn() {
-  const classes = useStyles();
+ export default function SignIn (){
+  
+  const [txtEmail,settxtEmail] = useState("");
+  const [txtPassword,settxtPassword] = useState("");
 
-  return (
+
+ const onChangeEmail = (e) =>{
+   settxtEmail(e.target.value)
+ }
+ const onChangePass = (e) =>{
+ 
+  settxtPassword(e.target.value)
+
+}
+ const onLogin = (e)=>{
+    e.preventDefault()
+    apiCaller({txtEmail,txtPassword}).then(res=>{
+      console.log(res.data)
+    })
+    // console.log({txtEmail,txtPassword})
+ }
+
+
+
+const classes = useStyles();
+
+
+    return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -53,7 +75,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} onSubmit={onLogin}  noValidate>
           <TextField
             variant="outlined"
             margin="normal"
@@ -61,25 +83,28 @@ export default function SignIn() {
             fullWidth
             id="email"
             label="Email Address"
-            name="email"
+            name="txtEmail"
             autoComplete="email"
             autoFocus
+            value = {txtEmail}
+            onChange = {onChangeEmail}
+            
           />
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            name="password"
+            name="txtPassword"
             label="Password"
             type="password"
             id="password"
             autoComplete="current-password"
+            value = {txtPassword}
+            onChange = {onChangePass}
+            
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
+         
           <Button
             type="submit"
             fullWidth
@@ -90,14 +115,9 @@ export default function SignIn() {
             Sign In
           </Button>
           <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
             <Grid item>
               <Link href="/register" variant="body2">
-                {"Don't have an account? Sign Up"}
+                Don $apos;t have an account? Sign Up
               </Link>
             </Grid>
           </Grid>
@@ -106,4 +126,5 @@ export default function SignIn() {
       
     </Container>
   );
+
 }
